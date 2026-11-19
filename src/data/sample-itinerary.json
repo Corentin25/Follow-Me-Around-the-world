@@ -1,0 +1,33 @@
+{
+  "_comment": "Itinéraire d'exemple pour le MODE DÉMO (même format que la réponse attendue de Gemini). Les coordonnées sont approximatives : à vérifier avant publication.",
+  "ville": "Québec",
+  "jours": [
+    {
+      "jour": 1,
+      "titre": "Vieux-Québec",
+      "etapes": [
+        { "heure": "09:00", "lieu": "Château Frontenac", "latitude": 46.8120, "longitude": -71.2050, "description": "L'emblème de la ville domine le fleuve. Un tour extérieur avant l'arrivée des groupes pour profiter de la lumière du matin." },
+        { "heure": "11:00", "lieu": "Quartier Petit Champlain", "latitude": 46.8113, "longitude": -71.2063, "description": "Ruelles pavées, boutiques d'artisans et escalier Casse-Cou pour descendre jusqu'à la basse-ville." },
+        { "heure": "13:00", "lieu": "Place Royale", "latitude": 46.8118, "longitude": -71.2023, "description": "Le berceau historique de la ville. Une pause déjeuner dans un décor de rue ancienne." },
+        { "heure": "16:30", "lieu": "Terrasse Dufferin", "latitude": 46.8117, "longitude": -71.2063, "description": "Une longue promenade en bois face au fleuve, idéale pour le coucher de soleil." }
+      ]
+    },
+    {
+      "jour": 2,
+      "titre": "Plaines d'Abraham",
+      "etapes": [
+        { "heure": "09:30", "lieu": "Plaines d'Abraham", "latitude": 46.8000, "longitude": -71.2213, "description": "Un vaste parc urbain à parcourir à pied pour une balade matinale avec vue sur le fleuve." },
+        { "heure": "12:00", "lieu": "Citadelle de Québec", "latitude": 46.8068, "longitude": -71.2106, "description": "Forteresse en forme d'étoile perchée sur le cap Diamant, avec un panorama sur la ville." },
+        { "heure": "15:00", "lieu": "Marché du Vieux-Port", "latitude": 46.8185, "longitude": -71.2012, "description": "Produits locaux, fromages et sirop d'érable pour clore la journée en gourmandise." }
+      ]
+    },
+    {
+      "jour": 3,
+      "titre": "Côte-de-Beaupré & île d'Orléans",
+      "etapes": [
+        { "heure": "10:00", "lieu": "Chutes Montmorency", "latitude": 46.8906, "longitude": -71.1487, "description": "Une chute plus haute que celles du Niagara, à admirer depuis le pont ou l'escalier panoramique." },
+        { "heure": "14:00", "lieu": "Île d'Orléans", "latitude": 46.9170, "longitude": -70.9830, "description": "Vergers, cidreries et produits du terroir, à parcourir à vélo ou en voiture." }
+      ]
+    }
+  ]
+}

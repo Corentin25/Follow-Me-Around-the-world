@@ -1,0 +1,31 @@
+.logo {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 8em;
+  height: 3em;
+  transition: font-size 0.8s var(--ease-out);
+}
+
+.logo img {
+  position: absolute;
+  display: block;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+
+.letter {
+  animation: zeroG 12s ease-in-out infinite;
+}
+
+@keyframes zeroG {
+  0%,
+  30%,
+  67%,
+  100% { transform: none; }
+  40% { transform: translate(var(--dx), var(--dy)) rotate(var(--r)); }
+  48% { transform: translate(calc(var(--dx) * 1.3), calc(var(--dy) * 0.5)) rotate(calc(var(--r) * -0.7)); }
+  56% { transform: translate(calc(var(--dx) * 0.6), calc(var(--dy) * 1.25)) rotate(calc(var(--r) * 0.6)); }
+}

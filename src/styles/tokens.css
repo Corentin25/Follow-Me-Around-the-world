@@ -1,0 +1,34 @@
+:root {
+  --bg-top: #1c1c1c;
+  --bg-bottom: #000000;
+  --surface: #333333;
+  --text: #ffffff;
+  --text-soft: #cfcfcf;
+  --text-dim: #bdbdbd;
+  --text-muted: #a3a3a3;
+  --chip-text: #e8e8e8;
+  --accent: #2ab3ff;
+  --on-accent: #04121b;
+  --error-text: #ff9a9a;
+  --error-border: #ff8a8a;
+  --glass-from: rgba(255, 255, 255, 0.06);
+  --glass-to: rgba(255, 255, 255, 0.025);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --focus-halo: 0 0 0 4px rgba(42, 179, 255, 0.18);
+
+  --font-display: 'Protest Revolution', cursive;
+  --font-title: 'Arvo', serif;
+  --font-body: 'Domine', Georgia, serif;
+
+  --radius-pill: 999px;
+  --radius-field: 16px;
+  --radius-card: 24px;
+  --radius-day: 20px;
+
+  --btn-height: 48px;
+  --btn-height-sm: 44px;
+  --field-height: 60px;
+  --touch-min: 44px;
+
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+}

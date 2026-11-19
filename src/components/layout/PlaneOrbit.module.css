@@ -1,0 +1,60 @@
+.track {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 976px;
+  height: 760px;
+  margin: -380px 0 0 -488px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 976px;
+  height: 760px;
+  overflow: visible;
+  fill: none;
+}
+
+.ellipse {
+  fill: none;
+  stroke: #2ab3ff;
+  stroke-opacity: 0.28;
+  stroke-width: 1.5px;
+  stroke-dasharray: 3 9;
+  stroke-linecap: round;
+}
+
+.t1,
+.t2,
+.t3 {
+  fill: #2ab3ff;
+  filter: drop-shadow(0 0 5px #2ab3ff);
+}
+.t1 { opacity: 0.2; }
+.t2 { opacity: 0.35; }
+.t3 { opacity: 0.55; }
+
+.plane {
+  filter: drop-shadow(0 0 5px rgba(42, 179, 255, 0.6));
+}
+
+.planeShape {
+  fill: #fff;
+  stroke: #fff;
+  stroke-width: 0.8px;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 1300px) {
+  .track { transform: scale(0.8); }
+}
+@media (max-width: 1100px) {
+  .track { transform: scale(0.62); }
+}
+@media (max-width: 760px) {
+  .track { transform: scale(0.42); }
+}
