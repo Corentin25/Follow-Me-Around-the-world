@@ -5,6 +5,7 @@ import Footer from './components/layout/Footer.jsx'
 import ScrollToTop from './components/layout/ScrollToTop.jsx'
 import ToastProvider from './context/ToastProvider.jsx'
 import TripProvider from './context/TripProvider.jsx'
+import ApiKey from './pages/ApiKey.jsx'
 import ComingSoon from './pages/ComingSoon.jsx'
 import Home from './pages/Home.jsx'
 import styles from './App.module.css'
@@ -19,7 +20,7 @@ export default function App() {
           <Routes>
             <Route element={<CenteredLayout />}>
               <Route index element={<Home />} />
-              <Route path="cle" element={<ComingSoon />} />
+              <Route path="cle" element={<ApiKey />} />
               <Route path="voyage" element={<ComingSoon />} />
               <Route path="chargement" element={<ComingSoon />} />
               <Route path="*" element={<ComingSoon />} />

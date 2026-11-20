@@ -1,0 +1,91 @@
+.block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.remember {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 52px;
+  padding: 0 20px 0 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--chip-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  transition: border-color 0.3s, background 0.3s, color 0.3s, transform 0.2s;
+}
+
+.remember:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.remember:active {
+  transform: scale(0.98);
+}
+
+.on {
+  border-color: var(--accent);
+  background: rgba(42, 179, 255, 0.12);
+  color: #fff;
+}
+
+.on:hover {
+  border-color: var(--accent);
+}
+
+.track {
+  position: relative;
+  flex: none;
+  width: 46px;
+  height: 26px;
+  border-radius: var(--radius-pill);
+  background: #6b6b6b;
+  transition: background 0.3s;
+}
+
+.on .track {
+  background: var(--accent);
+}
+
+.thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--on-accent);
+  transition: transform 0.35s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+
+.on .thumb {
+  transform: translateX(20px);
+}
+
+.check {
+  width: 12px;
+  height: 12px;
+  stroke-width: 3px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.on .check {
+  opacity: 1;
+}
+
+.note {
+  margin: 0;
+  max-width: 460px;
+  text-align: center;
+}

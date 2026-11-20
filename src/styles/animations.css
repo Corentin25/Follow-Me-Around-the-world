@@ -7,6 +7,8 @@
 .d3 { animation-delay: 0.4s; }
 .d4 { animation-delay: 0.55s; }
 .d5 { animation-delay: 0.75s; }
+.d6 { animation-delay: 0.95s; }
+.d7 { animation-delay: 1.15s; }
 
 @keyframes rise {
   from { opacity: 0; transform: translateY(18px); }

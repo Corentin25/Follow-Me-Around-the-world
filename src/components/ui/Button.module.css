@@ -69,7 +69,9 @@
 
 .primary.hero {
   gap: 10px;
-  padding: 0 30px;
+  min-height: 52px;
+  padding: 0 26px;
+  font-size: 16px;
 }
 
 .hero::before {
@@ -95,6 +97,20 @@
 
 .hero:not(:disabled):hover::before {
   opacity: 1;
+}
+
+.hero svg {
+  color: #000;
+  transition: transform 0.35s var(--ease-out), color 0.35s;
+}
+
+.hero:not(:disabled):hover svg,
+.hero:not(:disabled):focus-visible svg {
+  transform: translateX(3px);
+}
+
+.hero:not(:disabled):hover svg {
+  color: var(--on-accent);
 }
 
 .btn:disabled {
