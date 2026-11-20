@@ -1,12 +1,14 @@
 import { allVibes } from './vibes.js'
 
-export const API_KEY_PATTERN = /^AIza[0-9A-Za-z_-]{35}$/
+export const API_KEY_MIN_LENGTH = 20
+export const API_KEY_MAX_LENGTH = 200
+export const API_KEY_PATTERN = /^[A-Za-z0-9._-]+$/
 
 export function getApiKeyError(key) {
   const k = key.trim()
-  if (!k) return 'Colle ta clé API pour continuer.'
-  if (!API_KEY_PATTERN.test(k)) {
-    return 'Cette clé ne ressemble pas à une clé Google AI Studio (elle commence par « AIza » et fait 39 caractères).'
+  if (!k) return 'Colle ta clé Google AI Studio pour continuer.'
+  if (k.length < API_KEY_MIN_LENGTH || k.length > API_KEY_MAX_LENGTH || !API_KEY_PATTERN.test(k)) {
+    return `Cette clé ne ressemble pas à une clé Google AI Studio : elle doit faire entre ${API_KEY_MIN_LENGTH} et ${API_KEY_MAX_LENGTH} caractères, sans espace, avec uniquement des lettres, des chiffres, « . », « _ » ou « - ».`
   }
   return ''
 }

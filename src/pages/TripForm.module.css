@@ -1,0 +1,41 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: min(640px, 100%);
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.intro {
+  margin: 0;
+  max-width: 560px;
+  color: var(--text-soft);
+  line-height: 1.7;
+  text-wrap: balance;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  min-height: 330px;
+  padding: clamp(20px, 3vw, 22px) clamp(20px, 4vw, 32px);
+  text-align: left;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}

@@ -1,0 +1,92 @@
+.wrap {
+  width: 100%;
+  padding: 0 8px;
+}
+
+.rail {
+  position: relative;
+  height: 44px;
+  margin: 0 6px;
+}
+
+.line {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 21px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--surface);
+}
+
+.fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+  transition: width 0.7s var(--ease-out);
+}
+
+.dot {
+  position: absolute;
+  top: 13px;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  border-radius: 50%;
+  background: var(--bg-top);
+  border: 2px solid #555;
+  transition: all 0.4s;
+}
+
+.done {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.now {
+  border-color: #fff;
+}
+
+.plane {
+  position: absolute;
+  top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  margin-left: -16px;
+  color: #fff;
+  filter: drop-shadow(0 0 8px var(--accent));
+  transition: left 0.7s var(--ease-out);
+}
+
+.planeIcon {
+  width: 24px;
+  height: 24px;
+  transform: rotate(45deg);
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 -6px;
+  font-family: var(--font-title);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.label {
+  font-weight: 400;
+  transition: color 0.4s;
+}
+
+.labelNow {
+  color: #fff;
+}

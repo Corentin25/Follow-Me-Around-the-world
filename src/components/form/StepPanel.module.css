@@ -1,0 +1,35 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.forward {
+  animation: slideF 0.55s var(--ease-out) both;
+}
+
+.back {
+  animation: slideB 0.55s var(--ease-out) both;
+}
+
+.centered {
+  align-items: center;
+}
+
+.heading {
+  align-self: flex-start;
+  margin: 0;
+  font-family: var(--font-title);
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+@keyframes slideF {
+  from { opacity: 0; transform: translateX(48px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes slideB {
+  from { opacity: 0; transform: translateX(-48px); }
+  to { opacity: 1; transform: none; }
+}

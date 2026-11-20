@@ -1,0 +1,30 @@
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.custom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.custom p {
+  margin: 0 0 0 4px;
+}
+
+.words {
+  margin-top: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.addIcon {
+  color: var(--accent);
+}
+
+.recap {
+  margin: 0;
+}

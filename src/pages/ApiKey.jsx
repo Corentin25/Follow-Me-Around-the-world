@@ -11,7 +11,7 @@ import TitleDivider from '../components/ui/TitleDivider.jsx'
 import { cx } from '../lib/cx.js'
 import { usePageSetup } from '../hooks/usePageSetup.js'
 import { useTrip } from '../hooks/useTrip.js'
-import { getApiKeyError } from '../lib/validation.js'
+import { API_KEY_MAX_LENGTH, getApiKeyError } from '../lib/validation.js'
 import { saveApiKey, setRemember } from '../services/storage.js'
 import styles from './ApiKey.module.css'
 
@@ -106,7 +106,7 @@ export default function ApiKey() {
           autoCapitalize="off"
           autoCorrect="off"
           spellCheck={false}
-          maxLength={100}
+          maxLength={API_KEY_MAX_LENGTH + 20}
           value={keyInput}
           onChange={onChange}
           invalid={Boolean(error)}
