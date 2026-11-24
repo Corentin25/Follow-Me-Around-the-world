@@ -10,10 +10,10 @@ import ScrollToTop from './components/layout/ScrollToTop.jsx'
 import ToastProvider from './context/ToastProvider.jsx'
 import TripProvider from './context/TripProvider.jsx'
 import ApiKey from './pages/ApiKey.jsx'
-import ComingSoon from './pages/ComingSoon.jsx'
 import Home from './pages/Home.jsx'
 import { loadItinerary } from './pages/lazyPages.js'
 import Loading from './pages/Loading.jsx'
+import NotFound from './pages/NotFound.jsx'
 import TripForm from './pages/TripForm.jsx'
 import styles from './App.module.css'
 
@@ -48,7 +48,7 @@ export default function App() {
                   </RequireTripAccess>
                 }
               />
-              <Route path="*" element={<ComingSoon />} />
+              <Route path="*" element={<NotFound />} />
             </Route>
             <Route
               path="itineraire"
