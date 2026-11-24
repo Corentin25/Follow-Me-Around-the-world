@@ -15,7 +15,6 @@ dist-ssr
 # Secrets : jamais dans le dépôt
 .env
 .env.*
-!.env.example
 
 # Systèmes
 Thumbs.db

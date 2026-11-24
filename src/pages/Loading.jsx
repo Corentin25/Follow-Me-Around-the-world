@@ -7,6 +7,7 @@ import { useTrip } from '../hooks/useTrip.js'
 import { isAbortError, wait } from '../lib/async.js'
 import { cx } from '../lib/cx.js'
 import { fetchItinerary } from '../services/itinerary.js'
+import { loadItinerary } from './lazyPages.js'
 import styles from './Loading.module.css'
 
 const MESSAGES = [
@@ -27,6 +28,10 @@ export default function Loading() {
   const [messageIndex, setMessageIndex] = useState(0)
   const controller = useRef(null)
   const { demo, apiKey, form } = state
+
+  useEffect(() => {
+    loadItinerary()
+  }, [])
 
   useEffect(() => {
     const timer = setInterval(() => {

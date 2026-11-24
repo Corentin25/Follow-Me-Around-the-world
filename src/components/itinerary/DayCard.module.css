@@ -1,0 +1,228 @@
+.card {
+  border-radius: var(--radius-day);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+  transition: border-color 0.3s, opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+  animation: rise 0.6s var(--ease-out) backwards;
+}
+
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.open,
+.open:hover {
+  border-color: rgba(42, 179, 255, 0.55);
+  box-shadow: 0 18px 50px -24px rgba(42, 179, 255, 0.55);
+}
+
+.dragging {
+  opacity: 0.35;
+  transform: scale(0.98);
+}
+
+.over,
+.over:hover {
+  border-color: var(--accent);
+  box-shadow: 0 -4px 0 0 var(--accent);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 8px 6px 4px;
+}
+
+.grip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  margin: 0 -6px;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  color: #777;
+  cursor: grab;
+  touch-action: none;
+  transition: color 0.2s;
+}
+
+.head:hover .grip,
+.grip:focus-visible {
+  color: #fff;
+}
+
+.grip:active {
+  cursor: grabbing;
+}
+
+.toggle {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 8px 6px;
+  border: 0;
+  border-radius: 12px;
+  background: none;
+  text-align: left;
+}
+
+.dayNum {
+  font-family: var(--font-title);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.pop .dayNum {
+  display: inline-block;
+  animation: popIn 0.7s cubic-bezier(0.2, 1.6, 0.3, 1);
+}
+
+.dayTitle {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.dayMeta {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.chevron {
+  color: var(--text-muted);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.card .mv {
+  position: relative;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.card .mv:disabled {
+  opacity: 0;
+}
+
+.card:hover .mv,
+.card:focus-within .mv {
+  opacity: 1;
+}
+
+.card:hover .mv:disabled,
+.card:focus-within .mv:disabled {
+  opacity: 0.3;
+}
+
+@media (hover: none) {
+  .card .mv {
+    opacity: 1;
+  }
+  .card .mv:disabled {
+    opacity: 0.3;
+  }
+}
+
+.card .mv::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  transition: background 0.25s;
+}
+
+.card .mv:hover {
+  background: transparent;
+}
+
+.card .mv:hover::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mv + .mv {
+  margin-left: -8px;
+}
+
+.mvIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.card .trash {
+  color: var(--accent);
+}
+
+.card .trash:hover {
+  color: var(--error-border);
+}
+
+.collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease-out);
+}
+
+.collapseOpen {
+  grid-template-rows: 1fr;
+}
+
+.collapseIn {
+  min-height: 0;
+  overflow: hidden;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes popIn {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.6); color: #fff; }
+  100% { transform: scale(1); }
+}
+
+@media print {
+  .card {
+    border-color: #ccc;
+    background: none;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  .grip,
+  .chevron,
+  .card .mv,
+  .card .trash {
+    display: none;
+  }
+  .collapse {
+    grid-template-rows: 1fr;
+  }
+  .dayNum,
+  .dayTitle,
+  .dayMeta {
+    color: #000;
+  }
+}
