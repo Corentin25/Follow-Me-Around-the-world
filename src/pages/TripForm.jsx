@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import ProgressRail from '../components/form/ProgressRail.jsx'
 import StepDestination from '../components/form/StepDestination.jsx'
 import StepDuration from '../components/form/StepDuration.jsx'
@@ -26,7 +26,8 @@ export default function TripForm() {
   const navigate = useNavigate()
   const form = state.form
 
-  const [step, setStep] = useState(1)
+  const location = useLocation()
+  const [step, setStep] = useState(() => (location.state?.step === LAST_STEP ? LAST_STEP : 1))
   const [dir, setDir] = useState(1)
   const [vibeText, setVibeText] = useState('')
   const stepHeadingRef = useRef(null)
