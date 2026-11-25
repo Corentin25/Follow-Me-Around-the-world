@@ -3,6 +3,8 @@
   isolation: isolate;
   width: 100%;
   aspect-ratio: 600 / 520;
+  min-height: 360px;
+  max-height: calc(100vh - 160px);
   border-radius: var(--radius-card);
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);

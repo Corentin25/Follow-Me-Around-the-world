@@ -54,6 +54,7 @@ export default function DayCard({
           className={styles.toggle}
           aria-expanded={open}
           aria-controls={collapseId}
+          aria-label={`Jour ${number} : ${day.titre}, ${pluralize(day.etapes.length, 'étape')}`}
           onClick={onToggle}
         >
           <span className={styles.dayNum}>JOUR {number}</span>

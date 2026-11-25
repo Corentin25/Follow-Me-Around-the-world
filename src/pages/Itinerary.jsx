@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { Fragment, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import DayList from '../components/itinerary/DayList.jsx'
 import EmptyItinerary from '../components/itinerary/EmptyItinerary.jsx'
@@ -29,6 +29,10 @@ export default function Itinerary() {
   const [hoverStepId, setHoverStepId] = useState(null)
   const [popDayId, setPopDayId] = useState(null)
   const timers = useRef([])
+  const listRef = useRef(null)
+
+  const focusInList = (selector) =>
+    requestAnimationFrame(() => listRef.current?.querySelector(selector)?.focus())
 
   useEffect(() => {
     const pending = timers.current
@@ -51,13 +55,16 @@ export default function Itinerary() {
     const index = days.findIndex((d) => d.id === id)
     if (index < 0) return
     const remaining = days.filter((d) => d.id !== id)
+    const nextId = remaining.length ? remaining[Math.min(index, remaining.length - 1)].id : null
     dispatch({ type: 'DELETE_DAY', id })
-    if (openDayId === id) setOpenDayId(remaining.length ? remaining[Math.min(index, remaining.length - 1)].id : null)
+    if (openDayId === id) setOpenDayId(nextId)
     setHoverStepId(null)
+    focusInList(nextId ? `[data-day="${nextId}"] [data-toggle]` : '[data-empty-action]')
     showToast('Jour supprimé — les numéros se sont ajustés', {
       onUndo: () => {
         dispatch({ type: 'UNDO_DELETE' })
         setOpenDayId(id)
+        focusInList(`[data-day="${id}"] [data-toggle]`)
         showToast('Jour rétabli', { duration: 2200 })
       },
     })
@@ -77,11 +84,12 @@ export default function Itinerary() {
   }
 
   const vibes = allVibes(state.form).join(', ')
+  const recapParts = [pluralize(days.length, 'jour'), `${state.form.radius} km`, vibes].filter(Boolean)
 
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <Logo size={22} />
+        <Logo size={22} className={styles.logo} />
         <div className={styles.actions}>
           <Button size="sm" onClick={newTrip}>
             <Icon name="plus" /> Nouvel itinéraire
@@ -93,21 +101,29 @@ export default function Itinerary() {
       </header>
 
       <div className={styles.content}>
-        <section className={styles.list}>
+        <section ref={listRef} className={styles.list}>
           <div className={styles.summary}>
             <PageTitle ref={headingRef} text={state.itinerary.ville} className={styles.title} />
-            <Chip static className="rise d2">
+            <Chip static className={cx(styles.chip, 'rise d2')}>
               {pluralize(days.length, 'jour')}
             </Chip>
             {vibes && (
-              <Chip static className="rise d2">
+              <Chip static className={cx(styles.chip, 'rise d2')}>
                 {vibes}
               </Chip>
             )}
-            <Chip static className="rise d2">
+            <Chip static className={cx(styles.chip, 'rise d2')}>
               dans un rayon de {state.form.radius} km
             </Chip>
           </div>
+          <p className={cx(styles.recap, 'rise d2')}>
+            {recapParts.map((part, i) => (
+              <Fragment key={i}>
+                {i > 0 && <span className={styles.recapDot}> · </span>}
+                <span className={styles.recapItem}>{part}</span>
+              </Fragment>
+            ))}
+          </p>
           <p className={cx('hint', styles.hint, 'rise d3')}>
             {state.demo ? `Aperçu avec des données d'exemple. ${HINT}` : HINT}
           </p>

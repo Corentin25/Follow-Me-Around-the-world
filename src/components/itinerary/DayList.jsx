@@ -9,6 +9,7 @@ import {
 } from '@dnd-kit/core'
 import { SortableContext } from '@dnd-kit/sortable'
 import { useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion.js'
 import DayCard from './DayCard.jsx'
 import DayDragPreview from './DayDragPreview.jsx'
@@ -115,9 +116,12 @@ export default function DayList({ days, openDayId, popDayId, hoverStepId, onTogg
             />
           ))}
         </SortableContext>
-        <DragOverlay dropAnimation={reduced ? null : undefined}>
-          {activeIndex >= 0 && <DayDragPreview day={days[activeIndex]} number={activeIndex + 1} />}
-        </DragOverlay>
+        {createPortal(
+          <DragOverlay dropAnimation={reduced ? null : undefined}>
+            {activeIndex >= 0 && <DayDragPreview day={days[activeIndex]} number={activeIndex + 1} />}
+          </DragOverlay>,
+          document.body,
+        )}
       </DndContext>
       <p className="visually-hidden" aria-live="polite">
         {announcement}

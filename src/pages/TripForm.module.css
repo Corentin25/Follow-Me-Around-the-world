@@ -39,3 +39,21 @@
   align-items: center;
   gap: 12px;
 }
+
+@media (max-height: 760px) {
+  .page,
+  .head {
+    gap: 14px;
+  }
+
+  .intro {
+    line-height: 1.55;
+  }
+
+  .card {
+    min-height: 270px;
+    gap: 14px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}

@@ -4,6 +4,7 @@
   flex: none;
   width: 8em;
   height: 3em;
+  font-size: calc(var(--logo-size) * var(--logo-scale, 1));
   transition: font-size 0.8s var(--ease-out);
 }
 

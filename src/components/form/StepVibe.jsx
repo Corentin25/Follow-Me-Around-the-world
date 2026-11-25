@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { MAX_CUSTOM_VIBES, MAX_VIBE_LENGTH, VIBE_SUGGESTIONS } from '../../lib/tripOptions.js'
 import Chip from '../ui/Chip.jsx'
 import IconButton from '../ui/IconButton.jsx'
@@ -6,8 +7,14 @@ import StepPanel from './StepPanel.jsx'
 import styles from './StepVibe.module.css'
 
 export default function StepVibe({ form, text, onText, onToggle, onAdd, onRemove, recap, headingRef, dir }) {
+  const inputRef = useRef(null)
   const full = form.customVibes.length >= MAX_CUSTOM_VIBES
   const canAdd = text.trim().length > 0 && !full
+
+  const removeWord = (word) => {
+    onRemove(word)
+    requestAnimationFrame(() => inputRef.current?.focus())
+  }
 
   const onKeyDown = (e) => {
     if (e.key === 'Enter') {
@@ -17,7 +24,12 @@ export default function StepVibe({ form, text, onText, onToggle, onAdd, onRemove
   }
 
   return (
-    <StepPanel title="4 — Quelle sera la « vibe » de ton séjour ?" htmlFor="vibe" headingRef={headingRef} dir={dir}>
+    <StepPanel
+      title={'4 — Quelle sera la « vibe » de ton séjour ?'}
+      htmlFor="vibe"
+      headingRef={headingRef}
+      dir={dir}
+    >
       <div className={styles.chips}>
         {VIBE_SUGGESTIONS.map((name) => {
           const on = form.vibes.includes(name)
@@ -30,6 +42,7 @@ export default function StepVibe({ form, text, onText, onToggle, onAdd, onRemove
       </div>
       <div className={styles.custom}>
         <TextField
+          ref={inputRef}
           id="vibe"
           type="text"
           maxLength={MAX_VIBE_LENGTH}
@@ -48,7 +61,7 @@ export default function StepVibe({ form, text, onText, onToggle, onAdd, onRemove
         {form.customVibes.length > 0 ? (
           <div className={styles.words} role="group" aria-label="Tes vibes personnalisées">
             {form.customVibes.map((word) => (
-              <Chip key={word} on pop small onRemove={() => onRemove(word)} removeLabel={`Retirer ${word}`}>
+              <Chip key={word} on pop small onRemove={() => removeWord(word)} removeLabel={`Retirer ${word}`}>
                 {word}
               </Chip>
             ))}

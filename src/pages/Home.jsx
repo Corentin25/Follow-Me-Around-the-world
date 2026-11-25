@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <section className={styles.home}>
-      <PageTitle ref={headingRef} text="Bienvenue voyageur !" />
+      <PageTitle ref={headingRef} text={'Bienvenue voyageur !'} />
       <TitleDivider />
       <p className={`${styles.text} rise d3`}>
         L'aventure t'appelle et tu es prêt à sortir de ta zone de confort ? C'est parfait ! <br />Mais si passer des heures à

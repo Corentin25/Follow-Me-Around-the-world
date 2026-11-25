@@ -68,7 +68,7 @@ export default function TripForm() {
   return (
     <section className={styles.page}>
       <div className={styles.head}>
-        <PageTitle ref={headingRef} text="Bienvenue à bord !" />
+        <PageTitle ref={headingRef} text={'Bienvenue à bord !'} />
         <TitleDivider />
         <p className={cx(styles.intro, 'rise d2')}>
           À présent, installe-toi confortablement dans ton siège, boucle ta ceinture, et laisse-moi te guider autour du

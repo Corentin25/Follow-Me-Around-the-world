@@ -13,7 +13,7 @@ export default function StepDestination({ value, onChange, onEnter, headingRef, 
   }
 
   return (
-    <StepPanel title="1 — Où est-ce qu'on t'emmène ?" htmlFor="city" headingRef={headingRef} dir={dir}>
+    <StepPanel title={"1 — Où est-ce qu'on t'emmène ?"} htmlFor="city" headingRef={headingRef} dir={dir}>
       <TextField
         id="city"
         icon="pin"

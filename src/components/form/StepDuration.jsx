@@ -6,7 +6,7 @@ import styles from './StepDuration.module.css'
 
 export default function StepDuration({ days, onChange, headingRef, dir }) {
   return (
-    <StepPanel title="2 — On part pour combien de dodos ?" headingRef={headingRef} dir={dir} centered>
+    <StepPanel title={'2 — On part pour combien de dodos ?'} headingRef={headingRef} dir={dir} centered>
       <div className={styles.counter}>
         <div className={styles.row}>
           <button

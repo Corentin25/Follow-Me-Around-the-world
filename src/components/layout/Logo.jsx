@@ -10,7 +10,7 @@ export default function Logo({ size, className }) {
       className={cx(styles.logo, className)}
       role="img"
       aria-label="Follow Me – Around the world !"
-      style={{ fontSize: `${size}px` }}
+      style={{ '--logo-size': `${size}px` }}
     >
       {layout.images.map((img) => (
         <img

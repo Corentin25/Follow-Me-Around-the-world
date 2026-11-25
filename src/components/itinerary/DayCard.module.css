@@ -193,6 +193,25 @@
   overflow: hidden;
 }
 
+@media (max-width: 760px) {
+  .toggle {
+    flex-wrap: wrap;
+    column-gap: 8px;
+    row-gap: 2px;
+  }
+
+  .dayTitle {
+    order: 3;
+    flex-basis: 100%;
+    white-space: normal;
+    overflow: visible;
+  }
+
+  .dayMeta {
+    margin-left: auto;
+  }
+}
+
 @keyframes rise {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: none; }

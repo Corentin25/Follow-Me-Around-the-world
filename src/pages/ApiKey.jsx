@@ -74,7 +74,7 @@ export default function ApiKey() {
 
   return (
     <form className={styles.page} onSubmit={onSubmit} noValidate>
-      <PageTitle ref={headingRef} text="Quand on veut voyager, il faut son passeport !" />
+      <PageTitle ref={headingRef} text={'Quand on veut voyager, il faut son passeport !'} />
       <TitleDivider />
       <p className={cx(styles.intro, 'rise d2')}>
         Afin de pouvoir pleinement profiter de l'application, tu devras tout d'abord renseigner ta propre clé API.
@@ -135,7 +135,7 @@ export default function ApiKey() {
       />
 
       <div className={cx(styles.actions, 'rise d6')}>
-        <Button type="submit" variant="hero">
+        <Button type="submit" variant="hero" disabled={!keyInput.trim()}>
           J'ai mon passeport ! <Icon name="arrowRight" />
         </Button>
         <Button variant="link" onClick={startDemo}>

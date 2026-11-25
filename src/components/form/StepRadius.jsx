@@ -8,7 +8,7 @@ export default function StepRadius({ radius, onChange, headingRef, dir }) {
 
   return (
     <StepPanel
-      title="3 — Tu es prêt à t'éloigner jusqu'à quelle distance ?"
+      title={"3 — Tu es prêt à t'éloigner jusqu'à quelle distance ?"}
       htmlFor="radius"
       headingRef={headingRef}
       dir={dir}

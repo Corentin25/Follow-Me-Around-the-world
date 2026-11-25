@@ -1,5 +1,5 @@
 import 'leaflet/dist/leaflet.css'
-import { AttributionControl, MapContainer, Polyline, TileLayer } from 'react-leaflet'
+import { AttributionControl, MapContainer, Polyline, TileLayer, ZoomControl } from 'react-leaflet'
 import { cx } from '../../lib/cx.js'
 import styles from './ItineraryMap.module.css'
 import MapFitter from './MapFitter.jsx'
@@ -21,9 +21,11 @@ export default function ItineraryMap({ days, openDayId, hoverStepId, onHover, on
         zoom={first ? 13 : 2}
         scrollWheelZoom={false}
         attributionControl={false}
+        zoomControl={false}
         className={styles.map}
       >
         <TileLayer url={TILE_URL} attribution={ATTRIBUTION} maxZoom={19} />
+        <ZoomControl position="topleft" zoomInTitle="Zoom avant" zoomOutTitle="Zoom arrière" />
         <AttributionControl position="bottomright" prefix={false} />
         {routes.map((day) => {
           const open = day.id === openDayId

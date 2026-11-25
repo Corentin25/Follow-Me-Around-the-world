@@ -19,3 +19,23 @@
   align-items: center;
   gap: 28px;
 }
+
+@media (max-height: 760px) {
+  .main {
+    padding: 16px 24px;
+  }
+
+  .inner {
+    gap: 18px;
+  }
+
+  .logo {
+    --logo-scale: 0.82;
+  }
+}
+
+@media (max-width: 760px) {
+  .homeLogo {
+    --logo-scale: 0.82;
+  }
+}

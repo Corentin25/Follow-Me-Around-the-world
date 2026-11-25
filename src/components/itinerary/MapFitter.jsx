@@ -8,8 +8,14 @@ export default function MapFitter({ days, openDayId }) {
   const reduced = usePrefersReducedMotion()
 
   useEffect(() => {
+    const container = map.getContainer()
+    container.setAttribute('role', 'region')
+    container.setAttribute(
+      'aria-label',
+      'Carte interactive : flèches pour la déplacer, touches + et − pour zoomer',
+    )
     const observer = new ResizeObserver(() => map.invalidateSize())
-    observer.observe(map.getContainer())
+    observer.observe(container)
     return () => observer.disconnect()
   }, [map])
 
